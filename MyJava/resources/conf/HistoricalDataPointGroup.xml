@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<groups>
+	<universe i="ST">
+		<group i="1" name="Historical Portfolio Analysis">
+			<i id="HS010"/>
+			<i id="HS0A0"/>
+			<i id="HS0A1"/>
+			<i id="HS0A2"/>
+			<i id="HS0A3"/>
+			<i id="HS0A4"/>
+			<i id="HS0A5"/>
+			<i id="HS012"/>
+			<i id="HS731"/>
+			<i id="HS732"/>
+			<i id="HS733"/>
+			<i id="HS734"/>
+			<i id="PA_PPEFY1"/>
+			<i id="PA_PPEFY2"/>
+			<i id="PA_PPEFY3"/>
+			<i id="PA_PPEFY4"/>
+			<i id="PA_PPEDP"/>
+			<i id="PA_PPEDA"/>
+		</group>
+		<group i="2" name="Historical Price and Return Data">
+			<i id="HP002" />
+			<i id="HS440" />
+			<i id="HP010" />
+			<i id="HS456" />
+			<i id="HS315" />
+			<i id="HS346" />
+			<i id="HS377" />
+			<i id="HS446" />
+			<i id="HS441" />
+			<i id="HS447" />
+			<i id="HS442" />
+			<i id="HS445" />
+			<i id="HS448" />
+			<i id="HS443" />
+			<i id="HS449" />
+			<i id="HS444" />
+			<i id="HS459" />
+			<i id="HS408" />
+			<i id="HS0CY" />
+			<i id="HS291" />
+			<i id="HS293" />
+		</group>
+		<group i="3" name="Historical Style Analysis" >
+			<i id="HS74A" />
+			<i id="HS74B" />
+			<i id="HS74C" />
+			<i id="HS74D" />
+			<i id="HS05A" />
+			<i id="HS08M" />
+			<i id="HS08K" />
+			<i id="HS730" />
+			<i id="HS729" />
+			<i id="HS735" />
+			<i id="HS736" />
+			<i id="HS738" />
+			<i id="HS737" />
+			<i id="HS744" />
+			<i id="HS746" />
+			<i id="HS745" />
+			<i id="HS747" />
+			<i id="HS749" />
+			<i id="HS748" />
+			<i id="HS740" />
+			<i id="HS741" />
+			<i id="HS742" />
+			<i id="HS743" />
+			<i id="HS731" />
+			<i id="HS732" />
+			<i id="HS733" />
+			<i id="HS734" />
+			<i id="HS760" />
+			<i id="HS759" />
+		</group>
+		<group i="4" name="Historical Morningstar Analysis &amp; Ratings" >
+			<i id="HS983" />
+			<i id="HS991" />
+			<i id="HS984" />
+			<i id="HS992" />
+			<i id="HS985" />
+			<i id="HS993" />
+			<i id="HS986" />
+			<i id="HS994" />
+			<i id="HS987" />
+			<i id="HS995" />
+			<i id="HS988" />
+			<i id="HS996" />
+			<i id="HS989" />
+			<i id="HS997" />
+			<i id="HS999" />
+			<i id="HS001" />
+			<i id="HS005" />
+			<i id="HS990" />
+			<i id="HS998" />
+			<i id="HS007" />
+			<i id="QV031" />
+			<i id="QV033" />
+			<i id="QV035" />
+			<i id="QV037" />
+			<i id="QV039" />
+			<i id="QV041" />
+			<i id="QV043" />
+			<i id="QV045" />
+			<i id="QV047" />
+			<i id="QV049" />
+		</group>
+		<group i="5" name="Historical Market Cap and Enterprise Value" >
+			<i id="HS010" />
+			<i id="HS012" />
+			<i id="ST531" />
+			<i id="ST532" />
+		</group>
+		<group i="6" name="Historical Price Ratios" >
+			<i id="HS0A0" />
+			<i id="HS0A1" />
+			<i id="HS0A2" />
+			<i id="HS0A3" />
+			<i id="HS0A4" />
+			<i id="HS0A5" />
+			<i id="HS0AQ" />
+			<i id="HS0AR" />
+			<i id="HS0AS" />
+			<i id="HS0AT" />
+			<i id="HS0A6" />
+			<i id="HS0A7" />
+			<i id="HS0A8" />
+			<i id="HS0A9" />
+			<i id="HS0AA" />
+			<i id="HS0AB" />
+			<i id="HS0AC" />
+			<i id="HS0AD" />
+			<i id="HS0AE" />
+			<i id="HS0AF" />
+			<i id="HS0AG" />
+			<i id="HS0AH" />
+			<i id="HS0AI" />
+			<i id="HS0AJ" />
+			<i id="HS0AK" />
+			<i id="HS0AL" />
+			<i id="HS0AM" />
+			<i id="HS0AN" />
+			<i id="HS0AO" />
+			<i id="HS0AP" />
+			<i id="HS0DS" />
+			<i id="HS0DX" />
+			<i id="HS0DY" />
+			<i id="HS0DZ" />
+			<i id="HS0E0" />
+			<i id="HS0E1" />
+			<i id="HS0E2" />
+			<i id="HS0E3" />
+			<i id="HS0E4" />
+		</group>
+		<group i="7" name="Historical Operation Ratios" >
+			<i id="STA57" />
+			<i id="STA5Q" />
+			<i id="STA5R" />
+			<i id="STA5S" />
+			<i id="STA5T" />
+			<i id="STA54" />
+			<i id="STA5U" />
+			<i id="STA5V" />
+			<i id="STA5W" />
+			<i id="STA5X" />
+			<i id="STA59" />
+			<i id="STA52" />
+			<i id="STA5I" />
+			<i id="STA5J" />
+			<i id="STA5K" />
+			<i id="STA5L" />
+			<i id="STA5M" />
+			<i id="STA5N" />
+			<i id="STA5O" />
+			<i id="STA5P" />
+			<i id="STA55" />
+			<i id="STA5E" />
+			<i id="STA5F" />
+			<i id="STA5G" />
+			<i id="STA5H" />
+			<i id="STA53" />
+			<i id="STA5Y" />
+			<i id="STA5Z" />
+			<i id="STA60" />
+			<i id="STA61" />
+			<i id="STA5A" />
+			<i id="STA5B" />
+			<i id="STA5C" />
+			<i id="STA5D" />
+			<i id="ST533" />
+			<i id="STA58" />
+			<i id="STAGW" />
+			<i id="STAGI" />
+			<i id="STA56" />
+			<i id="HS030" />
+		</group>
+		<group i="8" name="Historical Attribution" type="Historical-Attribution">			
+			<i id="PA2205" />
+			<i id="PA2203" />
+			<i id="PA2204" />
+			<i id="HS750" />
+		</group>		
+		<group i="9" name="Attribution Calculation" type="Historical-Calculation">			
+			<i id="PA-ATTRI-1" />
+			<i id="PA-ATTRI-2" />
+			<i id="PA-ATTRI-3" />
+			<i id="PA-ATTRI-4" />
+			<i id="PA-ATTRI-5" />
+			<i id="PA-ATTRI-6" />
+			<i id="PA-ATTRI-7" />
+			<i id="PA-ATTRI-8" />
+			<i id="PA-ATTRI-9" />
+			<i id="PA-ATTRI-10" />
+			<i id="PA-ATTRI-11" />
+			<i id="PA-ATTRI-12" />
+			<i id="PA-ATTRI-13" />
+			<i id="PA-ATTRI-14" />
+		</group>
+	</universe>
+</groups>

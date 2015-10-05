@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	
+	<constant name="struts.devMode" value="true"></constant>
+	
+	<include file="struts-new.xml"/>
+	
+	<package name="mystruts" namespace="/" extends="struts-default">
+		<!-- define interceptor-stack and custom interceptor -->
+		<interceptors>
+			<interceptor name="myinterceptor" class="com.struts.MyInterceptor"/>
+			<interceptor-stack name="myinterceptorstack">
+				<!-- 
+				http://stackoverflow.com/questions/21018018/unexpected-exception-caught-setting-xxx-on-class-xxx-error-setting-expressio	
+				https://struts.apache.org/docs/model-driven-interceptor.html	
+				http://www.coderanch.com/t/58423/Struts/Struts-Model-Driven-fundamentally-flawed	
+				Note: The ModelDrivenInterceptor must come before the both StaticParametersInterceptor 
+				and ParametersInterceptor if you want the parameters to be applied to the model.
+				-->
+				<interceptor-ref name="modelDriven"/>
+    		    <interceptor-ref name="params"/>
+    		    <interceptor-ref name="timer"/>
+    		   	<interceptor-ref name="myinterceptor"/>
+			</interceptor-stack>
+		</interceptors>
+
+		<action name="login" class="com.struts.LoginAction" method="execute">
+			<interceptor-ref name="myinterceptorstack"/>
+			<!--result name="success">/WEB-INF/jsp/helloStruts.jsp</result-->
+			<result name="success" type="chain">getHello</result>	
+			<!--result name="success" type="chain">
+				<param name="actionName">getHello</param>
+			</result-->
+			<!--result name="failed">/</result-->
+			<result name="failed" type="dispatcher">
+				<param name="location">/</param>
+			</result>
+			<result name="input">/</result>
+		</action>
+		<!-- action's @name should be consistent with action triggered from jsp
+		@result value tells right view/jsp page the action method should call. -->
+		<!--action name="getHello" class="com.struts.HelloAction" method="execute"-->
+		<!-- struts' action wildcard, use get* -->	
+		<action name="get*" class="com.struts.{1}Action" method="execute">
+			<result name="success">/WEB-INF/jsp/helloStruts.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+			<!--result name="success" type="freemarker">
+				<param name="location">/WEB-INF/helloFreeMarker.fm</param>
+			</result>
+			<result name="error" type="redirect">
+				<param name="location">/WEB-INF/jsp/error.jsp</param>
+			</result-->
+		</action>
+	</package>
+
+	<package name="hellostruts" namespace="/demo" extends="struts-default">
+		<!--action name="get*" class="com.struts.{1}Action" method="execute">
+		</action-->
+	</package>
+
+</struts>

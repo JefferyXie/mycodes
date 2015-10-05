@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd"
+	default-init-method="init" default-destroy-method="destroy">
+
+	<context:annotation-config/>
+
+	<!-- 
+	1), the beans (singleton) defined here will be automatically instantiated as application launches;
+	2), "prototype" beans won't be instantiated until they are called. 
+	-->
+	<!--bean id="sayhello" class="com.myjava.spring.SayHello" init-method="init" destroy-method="destroy"-->
+	<bean id="sayhello" class="com.myjava.spring.SayHello">
+		<property name="message1" value="(sayhello) Default message from Beans.xml!"/>
+	</bean>
+	
+	<!-- @prototype to create bean instance every time per request, used for state-full bean -->
+	<bean id="sayhello-prototype" class="com.myjava.spring.SayHello" scope="prototype">
+	</bean>
+	
+	<bean class="com.myjava.spring.MyBeanPostProcessor"/>
+
+	<!-- @parent is used to inherit attributes -->
+	<bean id="messagehandler" class="com.myjava.spring.MessageHandler" parent="sayhello">
+		<property name="message2" value="(messagehandler) Message2 from Beans.xml" />
+	</bean>
+	
+	<bean id="sayhello-injection" class="com.myjava.spring.SayHello">
+		<property name="msgHandler">
+			<bean id="messagehandler-injection" class="com.myjava.spring.MessageHandler" />
+		</property>	
+	</bean>
+
+	<bean id="sayhello-autowired" class="com.myjava.spring.SayHello">
+	</bean>
+
+	<bean id="javacollection" class="com.myjava.spring.JavaCollection">
+		<property name="addrList">
+			<list>
+				<value>USA</value>	
+				<value>China</value>
+				<value>Germany</value>
+				<ref bean="sayhello" />
+			</list>	
+		</property>	
+		<property name="addrSet">
+			<set>
+				<value>UK</value>	
+				<value>China</value>
+				<value>Germany</value>
+			</set>	
+		</property>
+		<property name="addrMap">
+			<map>
+				<entry key="2" value="USA"/>	
+				<entry key="1" value="China"/>
+				<entry key="4" value="Italy"/>
+				<entry key="5" value-ref="sayhello"/>
+				<entry key-ref="sayhello" value="World"/>
+			</map>	
+		</property>
+		<property name="addrProp">
+			<props>
+				<prop key="two">USA</prop>	
+				<prop key="one">China</prop>
+				<prop key="three">Italy</prop>
+			</props>	
+		</property>
+	</bean>
+
+	<bean id="customer" class="com.myjava.spring.Customer">
+		<property name="action" value="buy"/>	
+		<property name="type" value="2"/>
+	</bean>
+	<!--bean id="student" class="com.myjava.spring.Student">
+		<property name="name" value="Jack"/>	
+		<property name="age" value="15"/>
+		<property name="id" value="001"/>
+	</bean-->
+	<bean id="stu2" class="com.myjava.spring.Student">
+		<property name="name" value="Mike"/>	
+		<property name="age" value="25"/>
+		<property name="id" value="002"/>
+	</bean>
+
+	<!-->
+	<bean id="..." class="..." lazy-init="true"></bean>
+	<bean id="..." class="..." init-method="..."></bean>
+	<bean id="..." class="..." destroy-method=""></bean>
+	<bean id="..." class="..." scope="singleton"></bean>
+	<-->
+</beans>

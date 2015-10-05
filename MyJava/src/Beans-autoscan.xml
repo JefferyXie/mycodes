@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd"
+	default-init-method="init" default-destroy-method="destroy">
+
+	<context:annotation-config/>
+	<context:component-scan base-package="com.myjava.spring">
+		<context:include-filter type="regex" expression="com.myjava.spring.*mer.*"/>	
+		<context:include-filter type="regex" expression="com.myjava.spring.Stu.*"/>
+	</context:component-scan>
+
+	<!--bean id="customer" class="com.myjava.spring.Customer">
+		<property name="action" value="buy"/>	
+		<property name="type" value="2"/>
+	</bean-->
+	<!--bean id="student" class="com.myjava.spring.Student">
+		<property name="name" value="Jack"/>	
+		<property name="age" value="15"/>
+		<property name="id" value="001"/>
+	</bean-->
+	<!--bean id="stu2" class="com.myjava.spring.Student">
+		<property name="name" value="Mike"/>	
+		<property name="age" value="25"/>
+		<property name="id" value="002"/>
+	</bean-->
+
+</beans>
