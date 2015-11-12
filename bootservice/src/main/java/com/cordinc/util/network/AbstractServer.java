@@ -238,13 +238,23 @@ public abstract class AbstractServer implements Runnable {
     		readBuffer = ByteBuffer.allocate(defaultBufferSize); 
     		readBuffers.put(key, readBuffer); 
     	}
+    	// read data pending in the channel
+    	// 1), maybe only receive partial message even if message is not big
+    	// 2), maybe multiple messages exist, will try to read all them
+    	// 3), maybe a message is too big to be fully put into buffer, then this
+    	// read will repeat multiple times
     	if (((ReadableByteChannel)key.channel()).read(readBuffer)==-1) {
     		throw new IOException("Read on closed key");
     	}
     	
     	readBuffer.flip(); 
     	List<ByteBuffer> result = new ArrayList<ByteBuffer>();
-    	   	
+    	
+    	// process data received in the buffer
+    	// 1), if only partial message is received, keep using readBuffer for coming request
+    	// 2), if multiple messages in the buffer, so need while loop here
+    	// 3), if message is too big, re-allocate the readBuffer and keep reading
+    	// 4), one readMessage(..) handle at most one full message
     	ByteBuffer msg = readMessage(key, readBuffer);
     	while (msg!=null) {
     		result.add(msg);
