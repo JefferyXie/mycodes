@@ -1,10 +1,12 @@
 package com.myjava.test;
 
 import static org.junit.Assert.*;
+
+import java.io.UnsupportedEncodingException;
+
 import org.junit.*;
 
-import com.myjava.algo.NumOperation;
-import com.myjava.algo.Sort;
+import com.myjava.algo.*;
 
 public class algoTest {
 
@@ -41,5 +43,23 @@ public class algoTest {
 	@Test
 	public void testNumOperation() {
 		assertTrue(NumOperation.FindContinuousSequence(25));
+	}
+	
+	@Test
+	public void testBitUtil() {
+		String s = "12" ;
+		short n = 100;
+		byte[] buf;
+		try {
+			buf = s.getBytes("UTF-8");
+			byte[] buf2 = BitUtil.shortToByteArray(n);
+			System.out.println(BitUtil.calculateCheckSum(buf));
+			System.out.println(BitUtil.calculateCheckSum(buf2));
+			System.out.println(BitUtil.bytes2HexString(buf2));
+			byte i = -112;
+			System.out.println(i & 0xff);	
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
 	}
 }
