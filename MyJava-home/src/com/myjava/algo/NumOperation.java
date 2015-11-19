@@ -1,6 +1,7 @@
 package com.myjava.algo;
 
 import java.io.IOException;
+import java.util.Random;
 
 public class NumOperation {
 
@@ -13,7 +14,7 @@ public class NumOperation {
 		System.out.println();
 	}
 
-	// ºÍÎªsumµÄÁ¬ÐøÕýÕûÊýÐòÁÐ
+	// å’Œä¸ºsumçš„è¿žç»­æ­£æ•´æ•°åºåˆ—
 	// http://blog.csdn.net/mafuli007/article/details/8558657
 	public static boolean FindContinuousSequence(int sum)
 	{
@@ -53,13 +54,13 @@ public class NumOperation {
 		return maxProfit;
 	}
 
-	// ÇóÁ½¸öÈýÎ»Êý³Ë»ýµÄ×î´ó»ØÎÄÊý
-	// »ØÎÄÊý´ÓÁ½±ß¶ÁÖµÊÇÒ»ÑùµÄ¡£Á½¸öÁ½Î»Êý³Ë»ýµÄ×î´ó»ØÎÄÊýÊÇ9009£½99*99£¬ÇóÁ½¸öÈýÎ»Êý³Ë»ýµÄ×î´ó»ØÎÄÊý£¿
+	// æ±‚ä¸¤ä¸ªä¸‰ä½æ•°ä¹˜ç§¯çš„æœ€å¤§å›žæ–‡æ•°
+	// å›žæ–‡æ•°ä»Žä¸¤è¾¹è¯»å€¼æ˜¯ä¸€æ ·çš„ã€‚ä¸¤ä¸ªä¸¤ä½æ•°ä¹˜ç§¯çš„æœ€å¤§å›žæ–‡æ•°æ˜¯9009ï¼99*99ï¼Œæ±‚ä¸¤ä¸ªä¸‰ä½æ•°ä¹˜ç§¯çš„æœ€å¤§å›žæ–‡æ•°ï¼Ÿ	
 	public static long FindPalindromicNumber() {
 		Long max = 0L;
 		for (long i = 999L; i >= 100; i--) {
-			// Èç¹ûÄ³¸ö»ØÎÄÊý888888£½924*962£¬ÄÇÃ´Ò²ÓÐ¿ÉÄÜÊÇ962*924£¬Á½´Î»ñµÃÄ³¸ö»ØÎÄÊý£¬
-			// Èç¹ûÅÐ¶Ïj>i, Ó¦¸Ã¿ÉÒÔ»Ø±Ü´ËÎÊÌâ£¬¼õÉÙ½«½üÒ»°ëµÄÊýÖµ¼ÆËã
+			// å¦‚æžœæŸä¸ªå›žæ–‡æ•°888888ï¼924*962ï¼Œé‚£ä¹ˆä¹Ÿæœ‰å¯èƒ½æ˜¯962*924ï¼Œä¸¤æ¬¡èŽ·å¾—æŸä¸ªå›žæ–‡æ•°ï¼Œ
+			// å¦‚æžœåˆ¤æ–­j>i, åº”è¯¥å¯ä»¥å›žé¿æ­¤é—®é¢˜ï¼Œå‡å°‘å°†è¿‘ä¸€åŠçš„æ•°å€¼è®¡ç®—
 			for (long j = 999L; j >= i; j--) {
 				if (IsPalindromicNumber(i * j)) {
 					if (i * j > max) {
@@ -74,6 +75,56 @@ public class NumOperation {
 		StringBuffer s = new StringBuffer(n + "");
 		s.reverse();
 		return Long.parseLong(s.toString()) == n;
+	}
+	
+	// find a number that appears once in array while others are duplicated
+	// http://www.codinghelmet.com/?path=exercises/number-appearing-once-in-array
+	public static int FindSingularFromDuplicates(int[] arr) {
+		int result = 0;
+		for (int i = 0; i < arr.length; ++i) {
+			result ^= arr[i];
+		}
+		return result;
+	}
+	
+	// find a number that appears once in array while others occur three times
+	// http://www.geeksforgeeks.org/find-the-element-that-appears-once/
+	public static int FindSingularFromTriple(int[] arr) {
+		final int NUM_INT_BITS = 32;
+		int result = 0;
+		int x, sum;
+		// iterate through every bit
+		for (int i = 0; i < NUM_INT_BITS; ++i) {
+			// find sum of set bits at i'th position in all array elements
+			sum = 0;
+			x = (1 << i);
+			for (int j = 0; j < arr.length; ++j) {
+				if ((arr[j] & x) != 0)
+					++sum;
+			}
+			// the bits with sum not multiple of 3, are the bits
+			// of element with single occurrence
+			if (sum % 3 != 0)
+				result |= x;
+		}
+		return result;
+	}
+	
+	// Given a function GenerateUni5 which equally generates 0,1,2,3,4
+	// Define a function that equally generates [0,8] by only using GenerateUni5()
+	// å°±æ˜¯ç»™ä¸€ä¸ª25ä¸ªå€¼çš„ç­‰æ¦‚çŽ‡ç©ºé—´ï¼Œå‰24ä¸ªå€¼çš„è¯ï¼Œæ¯3ä¸ªå€¼åˆ†é…ä¸€ä¸ªè¿”å›žå€¼
+	// å¦‚æžœä¸åœ¨è¿™ä¸ªèŒƒå›´ï¼ˆmagicç­‰äºŽ24äº†ï¼‰ï¼Œåˆ™é‡åšä¸€éã€‚
+	// è¿™æ˜¯ä¸ªç”±å¤šä¸ªMonte-Carloç®—æ³•å åŠ çš„Las-Vegasç®—æ³•ã€‚å•ä¸ªMonte-Carlo
+	// ä¸failçš„æ¦‚çŽ‡ä¸º24/25ã€‚æ‰€ä»¥Las-Vegasç®—æ³•æ‰§è¡Œçš„æœŸæœ›æ¬¡æ•°ä¸º25/24
+	// æ‰€ä»¥è¿™æ˜¯ä¸€ä¸ªO(1)æœŸæœ›æ—¶é—´çš„æ¦‚çŽ‡ç®—æ³•
+	public static int GenerateUni8() {
+		int v = 5 * GenerateUni5() + GenerateUni5();
+		if (v != 24) 
+			return v % 8;
+		return GenerateUni8();
+	}
+	private static int GenerateUni5() {
+		return new Random().nextInt(5);
 	}
 
 	static int main() throws IOException
