@@ -126,14 +126,5 @@ public class NumOperation {
 	private static int GenerateUni5() {
 		return new Random().nextInt(5);
 	}
-
-	static int main() throws IOException
-	{
-		FindContinuousSequence(15);
-
-		System.in.read();
-		return 0;
-	}
-
 }
 
