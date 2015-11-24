@@ -1,7 +1,5 @@
 package com.myjava.algo;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Random;
 
 public class NumOperation {
@@ -15,7 +13,7 @@ public class NumOperation {
 		System.out.println();
 	}
 
-	// 鍜屼负sum鐨勮繛缁鏁存暟搴忓垪
+	// 和为sum的连续正整数序列
 	// http://blog.csdn.net/mafuli007/article/details/8558657
 	public static boolean FindContinuousSequence(int sum)
 	{
@@ -55,13 +53,13 @@ public class NumOperation {
 		return maxProfit;
 	}
 
-	// 姹備袱涓笁浣嶆暟涔樼Н鐨勬渶澶у洖鏂囨暟
-	// 鍥炴枃鏁颁粠涓よ竟璇诲�兼槸涓�鏍风殑銆備袱涓袱浣嶆暟涔樼Н鐨勬渶澶у洖鏂囨暟鏄�9009锛�99*99锛屾眰涓や釜涓変綅鏁颁箻绉殑鏈�澶у洖鏂囨暟锛�	
+	// 求两个三位数乘积的最大回文数
+	// 回文数从两边读值是一样的。两个两位数乘积的最大回文数是9009＝99*99，求两个三位数乘积的最大回文数？
 	public static long FindPalindromicNumber() {
 		Long max = 0L;
 		for (long i = 999L; i >= 100; i--) {
-			// 濡傛灉鏌愪釜鍥炴枃鏁�888888锛�924*962锛岄偅涔堜篃鏈夊彲鑳芥槸962*924锛屼袱娆¤幏寰楁煇涓洖鏂囨暟锛�
-			// 濡傛灉鍒ゆ柇j>i, 搴旇鍙互鍥為伩姝ら棶棰橈紝鍑忓皯灏嗚繎涓�鍗婄殑鏁板�艰绠�
+			// 如果某个回文数888888＝924*962，那么也有可能是962*924，两次获得某个回文数，
+			// 如果判断j>i, 应该可以回避此问题，减少将近一半的数值计算
 			for (long j = 999L; j >= i; j--) {
 				if (IsPalindromicNumber(i * j)) {
 					if (i * j > max) {
@@ -113,11 +111,11 @@ public class NumOperation {
 	
 	// Given a function GenerateUni5 which equally generates 0,1,2,3,4
 	// Define a function that equally generates [0,8] by only using GenerateUni5()
-	// 灏辨槸缁欎竴涓�25涓�肩殑绛夋鐜囩┖闂达紝鍓�24涓�肩殑璇濓紝姣�3涓�煎垎閰嶄竴涓繑鍥炲��
-	// 濡傛灉涓嶅湪杩欎釜鑼冨洿锛坢agic绛変簬24浜嗭級锛屽垯閲嶅仛涓�閬嶃��
-	// 杩欐槸涓敱澶氫釜Monte-Carlo绠楁硶鍙犲姞鐨凩as-Vegas绠楁硶銆傚崟涓狹onte-Carlo
-	// 涓峟ail鐨勬鐜囦负24/25銆傛墍浠as-Vegas绠楁硶鎵ц鐨勬湡鏈涙鏁颁负25/24
-	// 鎵�浠ヨ繖鏄竴涓狾(1)鏈熸湜鏃堕棿鐨勬鐜囩畻娉�
+	// 就是给一个25个值的等概率空间，前24个值的话，每3个值分配一个返回值
+	// 如果不在这个范围（magic等于24了），则重做一遍。
+	// 这是个由多个Monte-Carlo算法叠加的Las-Vegas算法。单个Monte-Carlo
+	// 不fail的概率为24/25。所以Las-Vegas算法执行的期望次数为25/24
+	// 所以这是一个O(1)期望时间的概率算法
 	public static int GenerateUni8() {
 		int v = 5 * GenerateUni5() + GenerateUni5();
 		if (v != 24) 
@@ -128,8 +126,6 @@ public class NumOperation {
 	private static int GenerateUni5() {
 		return new Random().nextInt(5);
 	}
-<<<<<<< HEAD
-=======
 
 	// http://stackoverflow.com/questions/10690843/finding-the-list-of-prime-numbers-in-shortest-time
 	// Let n be a composite number (i.e. a number greter than 1 that has divisors other than 1 and n), and let d be a divisor of n.
@@ -155,15 +151,5 @@ public class NumOperation {
 		}
 		return true;
 	}
-
-	static int main() throws IOException
-	{
-		FindContinuousSequence(15);
-
-		System.in.read();
-		return 0;
-	}
-
->>>>>>> d5416360920294af336f554a6d7b5d3caba83632
 }
 

@@ -1,22 +1,23 @@
 package com.myjava.algo;
 
-import java.io.*;
+import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
 
 public class BitUtil {
 	public static byte[] int2byte(int res) {
 		byte[] targets = new byte[4];
 
-		targets[0] = (byte) (res & 0xff);// æœ€ä½ä½
-		targets[1] = (byte) ((res >> 8) & 0xff);// æ¬¡ä½ä½
-		targets[2] = (byte) ((res >> 16) & 0xff);// æ¬¡é«˜ä½
-		targets[3] = (byte) (res >>> 24);// æœ€é«˜ä½,æ— ç¬¦å·å³ç§»ã€‚
+		targets[0] = (byte) (res & 0xff);// ×îµÍÎ»
+		targets[1] = (byte) ((res >> 8) & 0xff);// ´ÎµÍÎ»
+		targets[2] = (byte) ((res >> 16) & 0xff);// ´Î¸ßÎ»
+		targets[3] = (byte) (res >>> 24);// ×î¸ßÎ»,ÎŞ·ûºÅÓÒÒÆ¡£
 		return targets;
 	}
 
 	public static int byte2int(byte[] res) {
-		// ä¸€ä¸ªbyteæ•°æ®å·¦ç§»24ä½å˜æˆ0x??000000ï¼Œå†å³ç§»8ä½å˜æˆ0x00??0000
+		// Ò»¸öbyteÊı¾İ×óÒÆ24Î»±ä³É0x??000000£¬ÔÙÓÒÒÆ8Î»±ä³É0x00??0000
 
-		int targets = (res[0] & 0xff) | ((res[1] << 8) & 0xff00) // | è¡¨ç¤ºå®‰ä½æˆ–
+		int targets = (res[0] & 0xff) | ((res[1] << 8) & 0xff00) // | ±íÊ¾°²Î»»ò
 				| ((res[2] << 24) >>> 8) | (res[3] << 24);
 		return targets;
 	}
@@ -34,11 +35,11 @@ public class BitUtil {
 	}
 
 	/**
-	 * å°†16ä½çš„shortè½¬æ¢æˆbyteæ•°ç»„
+	 * ½«16Î»µÄshort×ª»»³ÉbyteÊı×é
 	 * 
 	 * @param s
 	 *            short
-	 * @return byte[] é•¿åº¦ä¸º2
+	 * @return byte[] ³¤¶ÈÎª2
 	 */
 	public static byte[] shortToByteArray(short s) {
 		byte[] targets = new byte[2];
@@ -50,14 +51,14 @@ public class BitUtil {
 	}
 
 	/**
-	 * æ³¨é‡Šï¼šå­—èŠ‚æ•°ç»„åˆ°shortçš„è½¬æ¢ï¼
+	 * ×¢ÊÍ£º×Ö½ÚÊı×éµ½shortµÄ×ª»»£¡
 	 * 
 	 * @param b
 	 * @return
 	 */
 	public static short byteToShort(byte[] b) {
 		short s = 0;
-		short s0 = (short) (b[0] & 0xff);// æœ€ä½ä½
+		short s0 = (short) (b[0] & 0xff);// ×îµÍÎ»
 		short s1 = (short) (b[1] & 0xff);
 		s1 <<= 8;
 		s = (short) (s0 | s1);
@@ -65,7 +66,7 @@ public class BitUtil {
 	}
 
 	/**
-	 * æŠŠbyte[]è½¬æ¢æˆ16è¿›åˆ¶è¿›åˆ¶å­—ç¬¦ä¸²
+	 * °Ñbyte[]×ª»»³É16½øÖÆ½øÖÆ×Ö·û´®
 	 * 
 	 * @param b
 	 * @return
@@ -83,7 +84,7 @@ public class BitUtil {
 	}
 
 	/**
-	 * byte[]è½¬æ¢æˆbit
+	 * byte[]×ª»»³Ébit
 	 * 
 	 * @param b
 	 * @return
@@ -97,7 +98,7 @@ public class BitUtil {
 	}
 
 	/**
-	 * byteè½¬æ¢æˆ8ä½bit
+	 * byte×ª»»³É8Î»bit
 	 * 
 	 * @param b
 	 * @return
@@ -111,7 +112,7 @@ public class BitUtil {
 	}
 
 	/**
-	 * è®¡ç®—æ ¡éªŒå’Œ
+	 * ¼ÆËãĞ£ÑéºÍ
 	 * 
 	 * @param bytes
 	 * @return
