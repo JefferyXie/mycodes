@@ -36,7 +36,7 @@ public class algoTest {
 		
 		int[] src = {1, 2, 2, -3, 6, 3, 0, 1, -5};
 		int[] target = {-5, -3, 0, 1, 1, 2, 2, 3, 6};
-		Sort.QuickSort(src);
+		MySort.QuickSort(src);
 		assertArrayEquals(target, src);
 	}
 	

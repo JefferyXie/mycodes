@@ -1,7 +1,6 @@
 package com.myjava.algo;
 
-import java.io.ByteArrayOutputStream;
-import java.io.DataOutputStream;
+import java.io.*;
 
 public class BitUtil {
 	public static byte[] int2byte(int res) {

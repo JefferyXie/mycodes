@@ -1,6 +1,6 @@
 package com.myjava.algo;
 
-public class Sort {
+public class MySort {
 	public static void QuickSort(int src[])
 	{
 		if (null == src) return;

@@ -35,7 +35,7 @@ public class RunApp {
 		};
 		for (int[] ar : arr)
 		{
-			Sort.QuickSort(ar);
+			MySort.QuickSort(ar);
 			for (int v : ar)
 			{
 				System.out.print(v + ",");
