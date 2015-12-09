@@ -124,4 +124,79 @@ public class BitUtil {
 		}
 		return sum > 65535 ? (sum - 65535) : sum;
 	}
+	
+	/**
+	 * http://stackoverflow.com/questions/14784630/converting-decimal-to-binary-java
+	 * convert integer to binary
+	 * @param n
+	 * @return
+	 */
+	public static String int2Binary(int n) {
+		int temp = n;
+		StringBuilder sb = new StringBuilder();
+		while (n != 0) {
+			int bin = (n & 1);
+			// should use non-signed shift to support negative integer
+			n = n >>> 1;
+			sb.insert(0, bin);
+		}
+		System.out.println("integer " + temp + " == " + sb.toString());
+		return sb.toString();
+	}
+	
+	// this version doesn't support negative integer well....
+	public static String int2Binary_v2(int n) {
+		int temp = n;
+		StringBuilder sb = new StringBuilder();
+		while (n != 0) {
+			int bin = n % 2;
+			n = n / 2;
+			sb.append(bin);
+		}
+		System.out.println("integer " + temp + " == " + sb.reverse());
+		return sb.reverse().toString();
+	}
+	
+	/**
+	 * http://codercareer.blogspot.com/2011/11/no-20-number-of-1-in-binary.html
+	 * count the number of 1 in the binary format
+	 * @param n
+	 * @return
+	 * Check the most right bit, possibly with endless loop
+	 */
+	public static int NumberOf1_v1(int n)
+	{
+	    int count = 0;
+	    while(n > 0) {
+	        if ((n & 1) > 0)
+				count ++;
+
+	        n = n >> 1;
+	    }
+	    return count;
+	}
+	// Check the most right bit, with left shift operation on 1
+	public static int NumberOf1_v2(int n)
+	{
+	    int count = 0;
+	    int flag = 1;
+	    while(flag > 0) {
+	        if ((n & flag) > 0)
+	            count ++;
+
+	        flag = flag << 1;
+	    }
+	    return count;
+	}
+	// Most efficient version!
+	// the number of times in the while loops equals to the number of 1 in the binary format 
+	public static int NumberOf1_v3(int n)
+	{
+	    int count = 0;
+	    while (n > 0) {
+	        ++ count;
+	        n = (n - 1) & n;
+	    }
+	    return count;
+	}
 }
