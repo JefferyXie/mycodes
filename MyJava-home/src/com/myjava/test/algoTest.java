@@ -14,22 +14,22 @@ public class algoTest {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		System.out.println("[setUpBeforeClass]");
+		//System.out.println("[setUpBeforeClass]");
 	}
 
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
-		System.out.println("[tearDownAfterClass]");
+		//System.out.println("[tearDownAfterClass]");
 	}
 
 	@Before
 	public void setUp() throws Exception {
-		System.out.println("setUp");
+		//System.out.println("setUp");
 	}
 
 	@After
 	public void tearDown() throws Exception {
-		System.out.println("tearDown");
+		//System.out.println("tearDown");
 	}
 
 	@Test
@@ -43,8 +43,13 @@ public class algoTest {
 	}
 	
 	@Test
-	public void testNumOperation() {
-		assertTrue(NumOperation.FindContinuousSequence(25));
+	public void testFindContinuousSequence() {
+		NumOperation.StrPermutation("ab".toCharArray());
+		NumOperation.StrPermutation("abcd".toCharArray());
+		NumOperation.StrPermutation("abcdef".toCharArray());
+		NumOperation.FindContinuousSequence(25);
+		NumOperation.FindContinuousSequence(30);
+		NumOperation.FindContinuousSequence(100);
 	}
 	
 	@Test

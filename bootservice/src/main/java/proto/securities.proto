@@ -1,0 +1,47 @@
+package com.myjava.bootservice.securities.proto;
+
+enum SecurityType {
+	None = 0;
+	Stock = 1;
+	OpenEndFund = 2;
+	ETF = 3;
+	Account = 4;
+	ModelPortfolio = 5;
+}
+
+message Security {
+	required string Id = 1;
+	required string Name = 2;
+	required SecurityType Type = 3 [default = None];
+}
+
+message Investment {
+	required Security Security = 1;
+	repeated Portfolio Portfolios = 2;
+	repeated string Managers = 3;
+}
+
+message Fund {
+	required Investment Investment = 1;
+	optional double ManagementFee = 2;
+}
+
+message Holding {
+	required Security Security = 1;
+	optional double Weight = 2;
+}
+
+message Portfolio {
+	required string Id = 1;
+	required int64 Date = 2;
+	repeated Holding Holdings = 3;
+}
+
+message ShareClass {
+	required string Id = 1;
+	required string Name = 2;
+	repeated Fund Funds = 3;
+	repeated Portfolio Portfolios = 4;
+}
+
+	

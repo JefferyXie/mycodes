@@ -1,4 +1,4 @@
-package test.myjava.bootservice.json;
+package test.myjava.bootservice.serialization;
 
 import static org.junit.Assert.*;
 
@@ -74,14 +74,14 @@ public class Securities2JsonTest {
 							new Fund() {{
 								Id = "FOUSA8899";
 								Name = "Balanced Fund Retail";
-								MangementFee = 0.15;
+								ManagementFee = 0.15;
 								Managers = Arrays.asList("Jon", "Mike Harral");
 								Portfolios = Arrays.asList(port1, port2);
 								Type = SecurityType.OpenEndFund; }},
 							new Fund() {{
 								Id = "FOUSA8800";
 								Name = "Balanced Fund Instl";
-								MangementFee = 0.09;
+								ManagementFee = 0.09;
 								Managers = Arrays.asList("Jon", "Mike Harral");
 								Portfolios = Arrays.asList(port1, port2);
 								Type = SecurityType.OpenEndFund; }}
@@ -96,14 +96,14 @@ public class Securities2JsonTest {
 				new Fund() {{
 					Id = "FOUSA8899";
 					Name = "Balanced Fund Retail";
-					MangementFee = 0.15;
+					ManagementFee = 0.15;
 					Managers = Arrays.asList("Jon", "Mike Harral");
 					Portfolios = Arrays.asList(port1, port2);
 					Type = SecurityType.OpenEndFund; }},
 				new Fund() {{
 					Id = "FOUSA8800";
 					Name = "Balanced Fund Instl";
-					MangementFee = 0.09;
+					ManagementFee = 0.09;
 					Managers = Arrays.asList("Jon", "Mike Harral");
 					Portfolios = Arrays.asList(port1, port2);
 					Type = SecurityType.OpenEndFund; }}

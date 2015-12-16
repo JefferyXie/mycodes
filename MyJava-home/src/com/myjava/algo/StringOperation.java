@@ -1,7 +1,5 @@
 package com.myjava.algo;
 
-import java.util.Arrays;
-
 public class StringOperation {
 
 	private static void Print(char[] arr) {

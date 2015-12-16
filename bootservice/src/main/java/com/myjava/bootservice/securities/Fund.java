@@ -1,8 +1,8 @@
 package com.myjava.bootservice.securities;
 
 public class Fund extends Investment {
-	public double MangementFee;
+	public double ManagementFee;
 	public String toString() {
-		return super.toString() + "; @ManagementFee:" + MangementFee;
+		return super.toString() + "; @ManagementFee:" + ManagementFee;
 	}
 }

@@ -234,6 +234,7 @@ public class NumOperation {
         if (s >= target)
              return;
 
+        // recursively find all possible permutation from array numbers[]
         for (int i = 0; i < numbers.length; i++) {
               int[] remaining = Arrays.copyOfRange(numbers, i + 1, numbers.length);
               int[] partial_rec = new int[partial.length + 1];

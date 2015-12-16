@@ -1,7 +1,6 @@
 package com.myjava.bootservice.securities;
 
-import java.sql.Date;
-import java.util.List;
+import java.util.*;
 
 public class Portfolio {
 	public String Id;
