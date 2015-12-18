@@ -62,8 +62,9 @@ public class Reentrant {
 
 			System.out.println("run2() before condition.signal(). Please input: ");
 			new Scanner(System.in).nextLine();
-			System.out.println("run2() after condition.signal()");
+			System.out.println("run2() before condition.signal()");
 			condi.signal();
+			System.out.println("run2() after condition.signal()");
 			increment();
 			System.out.println("run2() after increment()");
 		} catch (Exception e) {

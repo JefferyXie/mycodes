@@ -4,7 +4,10 @@ public class RunApp {
 
 	public static void main(String[] args) {
 		
-		//Reentrant.run();
+		SynchronizedKey syn = new SynchronizedKey();
+		syn.runEnterSynMultitimes();
+		
+		Reentrant.run();
 		//TryLock.run();
 		//CallableFuture.run();
 		//Interruption.runThread();

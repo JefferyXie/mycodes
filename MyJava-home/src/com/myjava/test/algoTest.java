@@ -44,9 +44,9 @@ public class algoTest {
 	
 	@Test
 	public void testFindContinuousSequence() {
-		NumOperation.StrPermutation("ab".toCharArray());
-		NumOperation.StrPermutation("abcd".toCharArray());
-		NumOperation.StrPermutation("abcdef".toCharArray());
+		StringOperation.PossiblePermutation("ab".toCharArray());
+		StringOperation.PossiblePermutation("abcd".toCharArray());
+		StringOperation.PossiblePermutation("abcdef".toCharArray());
 		NumOperation.FindContinuousSequence(25);
 		NumOperation.FindContinuousSequence(30);
 		NumOperation.FindContinuousSequence(100);

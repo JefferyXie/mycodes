@@ -79,6 +79,15 @@ public class SynchronizedKey {
 		System.out.println("List1: " + list1.size() + "; List2: " + list2.size());
 	}
 
+	// see if it works when enter synchronized lock (same lock) recursively
+	// obviously there is no block happened!
+	public void runEnterSynMultitimes() {
+		synchronized (this) {
+			synchronized (lock1) {
+				stageOne();
+			}
+		}
+	}
 	private void stageOne()
 	{
 		synchronized (lock1) {
