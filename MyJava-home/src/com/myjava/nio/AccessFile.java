@@ -7,6 +7,10 @@ import java.nio.file.Paths;
 
 public class AccessFile {
 
+	/**
+	 * http://howtodoinjava.com/2013/05/01/3-ways-to-read-files-using-java-nio/
+	 * http://langgufu.iteye.com/blog/2107023
+	 */
 	static final String ResFile;
 	static {
 		ResFile = Paths.get("").toAbsolutePath().toString() + "\\resource\\res.txt";

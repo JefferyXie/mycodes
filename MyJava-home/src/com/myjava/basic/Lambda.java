@@ -3,6 +3,8 @@ package com.myjava.basic;
 import java.util.Random;
 import java.util.function.*;
 
+// consider variables' scope when using lambda -
+// http://www.informit.com/articles/article.aspx?p=2303960&seqNum=7
 public class Lambda {
 	static void run() {
 		/*() -> 10.1;
