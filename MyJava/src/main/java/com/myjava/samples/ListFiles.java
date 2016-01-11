@@ -1,9 +1,9 @@
-package com.myjava.functions;
+package com.myjava.samples;
 
 import java.io.File;
 import java.util.ArrayList;
 
-// �ݹ����Ŀ¼
+// java 递归遍历目录
 // http://blog.csdn.net/mafuli007/article/details/40106297
 public class ListFiles {
 	public static ArrayList filelist = new ArrayList();

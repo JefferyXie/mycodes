@@ -1,9 +1,9 @@
-package com.myjava.functions;
+package com.myjava.samples;
 
 import java.io.*;
 import java.util.*;
 
-// ���ж�ȡ�ļ�
+// java 按行读取文件
 // http://blog.csdn.net/mafuli007/article/details/37535557
 public class ReadFileByLine {
 

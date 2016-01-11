@@ -1,9 +1,11 @@
-package com.myjava.functions;
+package com.myjava.samples;
 
 import java.util.concurrent.Semaphore;  
 
+// 编写一个程序，开启3个线程，这3个线程的ID分别为A、B、C，每个线程将自己的
+// ID在屏幕上打印10遍，要求输出结果必须按ABC的顺序显示；如：ABCABC….依次递推
 // http://blog.csdn.net/niluchen/article/details/8066316
-// 1. ��ѵķ��� ��java.util.concurrent.Semaphore �ź���
+// 1. 最佳的方法 用java.util.concurrent.Semaphore 信号量
 public class ABCSemaphore {  
       
     static class T extends Thread{  
